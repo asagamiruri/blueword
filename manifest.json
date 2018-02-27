@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "blueword_extension",
+    "version": "1.0.0",
+    "description": "blueword",
+    "icons":
+    {
+        "48": "og_image.png"
+    },
+    "background":
+    {
+        // 2种指定方式，如果指定JS，那么会自动生成一个背景页
+        // "page": "blueword.html"
+    },
+    "content_scripts": 
+    [
+        {
+            "matches": ["*://mindfucking.blog.fc2blog.us/*"],
+            "js": ["jquery.js","blueword.js"]
+        }
+    ],
+    // 权限申请
+    "permissions":
+    [
+        "*://mindfucking.blog.fc2blog.us/*",
+        "notifications", // 通知
+        "webRequest", // web请求
+        "webRequestBlocking",
+        "storage" // 插件本地存储
+    ]
+}
